@@ -12,8 +12,7 @@ namespace MovieAPI.Data
         {
             var movies = db.Movies.ToList();
 
-            // Replace the old demo "Red Sparrow" entry with a more recognizable movie.
-            var oldDemo = movies.FirstOrDefault(x =>
+              var oldDemo = movies.FirstOrDefault(x =>
                 x.MovieName != null &&
                 x.MovieName.Equals("Red Sparrow", StringComparison.OrdinalIgnoreCase));
 
