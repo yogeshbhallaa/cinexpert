@@ -76,8 +76,6 @@ The UI is designed around a simple cinema workflow: discover movies → open det
 
 ## Movie Catalog Update
 
-The demo catalog no longer uses **Red Sparrow** as the featured sample movie.
-
 The backend includes a small presentation-ready catalog with recognizable movies such as:
 - Inception
 - Interstellar
@@ -85,8 +83,6 @@ The backend includes a small presentation-ready catalog with recognizable movies
 - Dune: Part Two
 - Avengers: Endgame
 - Spider-Man: Across the Spider-Verse
-
-`MovieCatalogSeeder.cs` keeps existing booking IDs intact when replacing the old Red Sparrow demo record. For a fresh database, it adds the starter catalog automatically.
 
 ## Architecture
 
@@ -237,11 +233,6 @@ The application communicates with API resources including:
 /ApplicationUser
 ```
 
-## Notes
-
-- The application is intentionally separated into Angular frontend and ASP.NET Core backend projects.
-- The movie catalog seed is for a clean demo experience and does not remove the existing booking architecture.
-- Movie poster URLs use external image hosting; an internet connection is required for those remote posters.
 
 ## Future Improvements
 
@@ -254,14 +245,3 @@ The application communicates with API resources including:
 - Better seat-locking/concurrency handling
 - Docker deployment
 - Automated frontend and API tests
-
-## UI Screenshots
-
-The complete UI screenshot set is in `docs/`. All screenshots were regenerated from scratch after a full spacing review across the workspace, cards, forms, lists, booking flow, and admin pages.
-
-See `docs/README-SCREENSHOTS.md` for the complete screenshot index and spacing system.
-
-
-## Layout & Responsive Spacing
-
-The UI includes a final responsive spacing pass to prevent dashboard/workspace panels from overlapping or forcing the page wider than the viewport. Grid children use `minmax(0, 1fr)`, `min-width: 0`, controlled panel widths, and responsive breakpoints for desktop, laptop, tablet, and mobile layouts.
