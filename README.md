@@ -6,11 +6,6 @@ The UI is designed around a simple cinema workflow: discover movies → open det
 
 ## UI Preview
 
-> All UI screenshots are included in `docs/` and are also collected in `docs.zip`.
-
-
-All included screenshots use the same **dark CineBook dashboard system**: navy workspace background, fixed sidebar navigation, compact metric cards, blue primary actions, muted secondary text, and consistent movie-card styling.
-
 ### Admin Dashboard
 ![Admin Dashboard](docs/01-admin-dashboard.png)
 
