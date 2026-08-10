@@ -1,0 +1,40 @@
+<section class="login-page">
+  <div class="login-showcase">
+    <span class="login-kicker">WELCOME TO CINEBOOK</span>
+    <h1>Your next movie night starts here.</h1>
+    <p>Sign in to discover movies, choose your show and reserve the best seats.</p>
+    <div class="login-points">
+      <span>✓ Browse movies</span>
+      <span>✓ Fast booking</span>
+      <span>✓ Manage bookings</span>
+    </div>
+  </div>
+
+  <div class="login-card">
+    <div class="login-card-head">
+      <span class="mini-logo">C</span>
+      <div>
+        <h2>Sign in</h2>
+        <p>Access your CineBook account</p>
+      </div>
+    </div>
+
+    <form #loginForm='ngForm' autocomplete="off" (ngSubmit)="onLogin(loginForm)">
+      <div class="login-field">
+        <label>User Name</label>
+        <input required ngModel name="userName" placeholder="Enter your username">
+      </div>
+
+      <div class="login-field">
+        <label>Password</label>
+        <input required type="password" ngModel name="password" placeholder="Enter your password">
+      </div>
+
+      <button [disabled]="!loginForm.valid" type="submit" class="login-submit">
+        Sign In
+      </button>
+
+      <button type="button" class="login-cancel">Cancel</button>
+    </form>
+  </div>
+</section>

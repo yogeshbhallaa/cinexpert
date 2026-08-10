@@ -1,0 +1,57 @@
+<!--Edit Movie-->
+<div class="row">
+  <div class="col-sm-5">
+    <form class="form-inline">
+      <div class="form-group">
+        <label class="sr-only" for="name">Movie Name</label>
+        <input name="movieName" type="text" class="form-control" id="name" [(ngModel)]="movie.movieName">
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="type">Movie Type</label>
+        <input name="movieType" type="text" class="form-control" id="type" [(ngModel)]="movie.movieType">
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="descritption">Movie Description</label>
+        <input name="cat1" type="text" class="form-control" id="descritption" [(ngModel)]="movie.movieDescription">
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="length">Length</label>
+        <input name="cat2" type="time" class="form-control" id="length" [(ngModel)]="movie.length">
+      </div>
+
+      <div class="form-group">
+        <label class="sr-only" for="rating">Rating</label>
+        <input name="cat3" type="number" class="form-control" id="rating" [(ngModel)]="movie.rating">
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="language">Language</label>
+        <input name="cat4" type="text" class="form-control" id="language" [(ngModel)]="movie.language">
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="directedby">Directed By :</label>
+        <input name="cat5" type="text" class="form-control" id="directedby" [(ngModel)]="movie.directedBY">
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="releasedate">Release Date : </label>
+        <input name="cat6" type="date" [(ngModel)]="movie.releaseDate" class="form-control" id="releasedate">
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="category">Category</label>
+        <input name="cat7" type="text" class="form-control" [(ngModel)]="movie.category" id="category">
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="category">Image Link</label>
+        <input name="cat9" type="text" class="form-control" [(ngModel)]="movie.image" id="image">
+      </div>
+      <button type="submit" class="btn btn-primary mt-2" (click)="onSubmit()">Update Movie</button>
+    </form>
+
+  </div>
+  <div class="col-sm-7">
+    <br>
+    <div class="card text-center">
+      <img style="height: 500px; min-width: 500px;" name="cat8" src="{{movie.image}}" alt="Movie Image" />
+      <h1 class="" style="text-align: center; "> <strong>{{movie.movieName}}</strong></h1>
+    </div>
+  </div>
+</div>

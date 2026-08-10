@@ -1,0 +1,17 @@
+<section class="seat-page">
+  <div class="movie-poster-wrap"><img src="{{Url}}" alt="Movie"></div>
+  <div class="seat-panel">
+    <span class="eyebrow">BOOKING</span><h2>Select Seats</h2>
+    <form [formGroup]="select">
+      <label>Number of seats</label>
+      <select formControlName="name" (change)="update()">
+        <option selected="true" disabled="disabled">Select seats</option>
+        <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+        <option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>
+      </select>
+    </form>
+    <div class="seat-summary"><span>Remaining seats</span><strong>{{totalSeats}}</strong></div>
+    <div class="seat-summary"><span>Total amount</span><strong>Rs {{TotalAmount}}</strong></div>
+    <button type="submit" (click)="onsubmit()" class="seat-book">Confirm Booking →</button>
+  </div>
+</section>

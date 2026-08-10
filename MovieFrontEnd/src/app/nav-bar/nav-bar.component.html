@@ -1,0 +1,32 @@
+<aside class="cine-sidebar">
+  <a class="cine-brand" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/">
+    <span class="brand-mark">C</span>
+    <span><strong>CineBook</strong><small>Movie dashboard</small></span>
+  </a>
+
+  <div class="side-search"><span>⌕</span><input placeholder="Search..." aria-label="Search"></div>
+
+  <nav class="side-nav">
+    <div class="side-label">Workspace</div>
+    <a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/">◫ <span>Dashboard</span></a>
+    <a *ngIf="!admin1()" routerLinkActive="active" routerLink="/my-bookings">◷ <span>My Bookings</span></a>
+    <a *ngIf="admin1()" routerLinkActive="active" routerLink="/add-movie">＋ <span>Add Movie</span></a>
+    <a *ngIf="admin1()" routerLinkActive="active" routerLink="/admin/movies">▦ <span>Manage Movies</span></a>
+    <a *ngIf="!admin1()" routerLinkActive="active" routerLink="/user/review">☆ <span>Reviews</span></a>
+    <a *ngIf="!loggedin()" routerLink="user/login">↪ <span>Sign In</span></a>
+    <a *ngIf="!loggedin()" routerLink="user/register">＋ <span>Create Account</span></a>
+  </nav>
+
+  <div class="side-messages">
+    <div class="side-label">Messages <span>4</span></div>
+    <div class="message-row"><i>BS</i><span>Budiman Surya</span></div>
+    <div class="message-row"><i>SB</i><span>Siti Bidrah</span></div>
+    <div class="message-row"><i>AF</i><span>Amelia Fortune</span></div>
+  </div>
+
+  <div class="side-profile">
+    <div class="avatar">{{loggedin() ? (userName || 'U').charAt(0).toUpperCase() : 'A'}}</div>
+    <div class="profile-copy"><strong>{{loggedin() ? userName : 'Admin Office'}}</strong><small>{{loggedin() ? 'Member' : 'CineBook Admin'}}</small></div>
+    <button *ngIf="loggedin()" (click)="onLogout()" class="side-logout">Logout</button>
+  </div>
+</aside>

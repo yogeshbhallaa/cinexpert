@@ -1,0 +1,161 @@
+<!--Add Movie Html-->
+<div class="row ">
+  <div class="col-6">
+    <div class="card">
+      <div class="card-header"> Add a New Movie </div>
+      <div class="card-body">
+        <form (ngSubmit)='onSubmit()' [formGroup]="addMovieForm">
+          <div class="tab-panel">
+            <tabset class="member-tabset" #formTabs>
+              <!--Basic Info-->
+              <tab heading="Basic Info" formGroupName="BasicInfo">
+                <div class="form-group col-12"> <label>Movie Name</label> <input type="text" class="form-control"
+                    #movieName (keyup)="movieView.movieName=movieName.value" formControlName="MovieName">
+                  <div class="error-block" *ngIf="MovieName.invalid && (nextClicked || MovieName.touched)">please fill
+                    the movie name</div>
+                </div>
+                <div class="form-group col-12"> <label>Movie Type</label> <input type="text" class="form-control"
+                    #movieType (keyup)="movieView.movieType=movieType.value" formControlName="MovieType">
+                </div>
+                <div class="form-group col-12"> <label>Movie Description</label> <textarea type="text"
+                    formControlName="MovieDescription" class="form-control" rows="6"></textarea> </div>
+
+                <div class="form-group col-12 " style="margin-top: 10px;"> <button type="button"
+                    class="btn btn-primary btn-block" (click)="selectTab(1)">Next</button> </div>
+              </tab>
+              <!--Add Show-->
+              <tab heading="Add Show" formGroupName="AddShow">
+                <div class="card">
+                  <div class="form-group col-12"> <label>Date</label> <input type="date" class="form-control" #date
+                      (keyup)="showtimeView.date=date.value" formControlName="Date" [(ngModel)]="showtimeView.date" required>
+                  </div>
+                  <div class="form-group col-12"> <label>Time</label> <input type="time" class="form-control" #time
+                      (keyup)="showtimeView.time=time.value" formControlName="Time"[(ngModel)]="showtimeView.time">
+                  </div>
+                  <div class="form-group col-12"> <label>Fare</label> <input type="number" class="form-control" #fare
+                      (keyup)="showtimeView.fare=fare.value" formControlName="Fare"[(ngModel)]="showtimeView.fare">
+                  </div>
+                  <button type="button" [disabled]="!AddShow.valid" class="btn btn-primary btn-block right"
+                    style="width: 80px; margin-top: 10px; margin-bottom: 10px; margin-left: 10px;"
+                      (click)="onClick()">+ Show</button>
+                </div>
+                <div class="form-group col-12" style="margin-top: 10px;"> <button type="button"
+                    class="btn btn-primary btn-block" (click)="selectTab(2)" style="margin-right: 10px;">Next</button>
+                  <button type="button" class="btn btn-danger btn-block" (click)="selectTab(0)">Back</button>
+                </div>
+              </tab>
+              <!--Other Details-->
+              <tab heading="Other Details" formGroupName="OtherDetail">
+                <div class="row">
+                  <div class="form-group col-6"> <label>Length</label> <input type="time" class="form-control" #length
+                      (keyup)="movieView.length=length.value" formControlName="Length"> </div>
+                  <div class="form-group col-6"> <label>Rating</label> <input type="text" class="form-control" #rating
+                      (keyup)="movieView.rating=rating.value" formControlName="Rating"> </div>
+                </div>
+                <div class="form-group col-12"> <label>Language</label> <input type="text" class="form-control"
+                    #language (keyup)="movieView.language=language.value" formControlName="Language">
+                </div>
+                <div class="form-group col-12"> <label>Directed BY: </label> <input type="text" class="form-control"
+                    #directedBy (keyup)="movieView.directedBY=directedBy.value" formControlName="DirectedBY">
+                </div>
+                <div class="form-group col-12"> <label>Release Date: </label> <input type="date" class="form-control"
+                    #releaseDate (keyup)="movieView.releaseDate=releaseDate.value" formControlName="ReleaseDate">
+                </div>
+                <div class="form-group col-12"> <label> Category</label> <input type="text" class="form-control"
+                    #category (keyup)="movieView.category=category.value" formControlName="Category"> </div>
+                <div class="form-group col-12" style="margin-top: 10px;"> <button type="button"
+                    class="btn btn-primary btn-block" (click)="selectTab(3)" style="margin-right: 10px;">Next</button>
+                  <button type="button" class="btn btn-danger btn-block" (click)="selectTab(1)">Back</button>
+                </div>
+              </tab>
+              <!--Photos-->
+              <tab heading="Photos" >
+                <div class="form-group col-12" >
+                  <div class="form-group">Image Link
+                  </div>
+                  <input type="text" (blur)="addimage(image)" name="img" #image
+                  (keyup)="movieView.image=image.value" formControlName="Image">
+                </div>
+                <!--Back Button-->
+                <div class="form-group col-12" style="margin-top: 10px;"> <button type="button"
+                    class="btn btn-danger btn-block" (click)="selectTab(2)">Back</button> </div>
+                <!--Save-->
+                <div class="form-group col-12 " style="margin-top: 10px; text-align: center;"> <button type="submit"
+                    style="margin-right: 10px;" class="btn btn-success btn-block">Submit</button>
+                </div>
+              </tab>
+
+            </tabset>
+
+
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="card-header ">
+      <h5 style="text-align: center;">Your Movie Preview</h5>
+      <br>
+      <div class="row">
+        <div class="  col-5 height">
+          <app-movie-card [movie]="movieView"></app-movie-card>
+
+        </div>
+        <div class="col-7">
+          <div class="card">
+            <strong class="title  " style="text-align:center;color:black;">{{movieView.movieName}}</strong>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td><strong><strong>Rating:</strong> </strong></td>
+                  <td> <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>{{movieView.rating}}
+                  </td>
+
+                </tr>
+                <tr>
+                  <td><strong>Length:</strong></td>
+                  <td> {{movieView.length}}</td>
+                </tr>
+                <tr>
+                  <td><strong>Language:</strong></td>
+                  <td> {{movieView.language}}</td>
+                </tr>
+                <tr>
+                  <td><strong>Directed By:</strong></td>
+                  <td>{{movieView.directedBY}}</td>
+                </tr>
+                <tr>
+                  <td><strong>Release Date:</strong></td>
+                  <td> {{movieView.releaseDate}}</td>
+                </tr>
+                <tr>
+                  <td><strong>Category:</strong></td>
+                  <td>{{movieView.category}} </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+
+
+        </div>
+      </div>
+      <div style="width: 400px;align-items: center;margin-left: 40px;margin-top: 30px;">
+        <app-show-time [showtime]="showtimeViewX"></app-show-time>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+
+
+
+</div>

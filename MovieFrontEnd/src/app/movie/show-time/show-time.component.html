@@ -1,0 +1,9 @@
+<div class="show-time-card">
+  <div class="card-header">Show Times</div>
+  <div class="row header-row">
+    <div class="col-6">Date</div><div class="col-3">Time</div><div class="col-3">Fare</div>
+  </div>
+  <div class="row" *ngFor="let item of showtime">
+    <div class="col-6">{{item.date}}</div><div class="col-3">{{item.time}}</div><div class="col-3">Rs: {{item.fare}}</div>
+  </div>
+</div>

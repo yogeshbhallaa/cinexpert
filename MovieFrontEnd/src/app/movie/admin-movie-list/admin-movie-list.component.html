@@ -1,0 +1,59 @@
+<section class="admin-dashboard">
+  <header class="admin-head">
+    <div>
+      <span class="dash-kicker">CINEBOOK ADMIN</span>
+      <h1>Dashboard</h1>
+      <p>Monitor your cinema catalogue and keep today's titles ready for booking.</p>
+    </div>
+    <button routerLink="/add-movie" class="admin-add">＋ Add Movie</button>
+  </header>
+
+  <div class="metric-grid">
+    <div class="metric-card"><span>Revenue Ticket</span><strong>42.375 <b>USD</b></strong><small>↗ 12.8% this week</small></div>
+    <div class="metric-card"><span>Chair Sold</span><strong>7,956,445</strong><small>↗ 8.4% this week</small></div>
+    <div class="metric-card"><span>Ticket Cancelled</span><strong>875</strong><small class="negative">↘ 2.1% this week</small></div>
+  </div>
+
+  <div class="dashboard-grid">
+    <section class="panel hero-panel">
+      <div class="panel-title"><div><span>FEATURED MOVIE</span><h2>{{movies && movies.length ? movies[0].movieName : 'CineBook Collection'}}</h2></div><span class="live-pill">● LIVE</span></div>
+      <div class="feature-content">
+        <img *ngIf="movies && movies.length && movies[0].image" [src]="movies[0].image" [alt]="movies[0].movieName">
+        <div class="feature-copy">
+          <p>{{movies && movies.length ? movies[0].movieDescription : 'Manage your movie catalogue, schedules and booking-ready titles from one workspace.'}}</p>
+          <div class="feature-stats"><span>★ {{movies && movies.length ? movies[0].rating : '4.8'}}</span><span>{{movies && movies.length ? movies[0].length : '2h 20m'}}</span><span>{{movies && movies.length ? movies[0].language : 'English'}}</span></div>
+          <button (click)="movies && movies.length && onEdit(movies[0].id)">Manage title →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel catalogue-panel">
+      <div class="panel-title"><div><span>BESTSELLING</span><h2>Top Movies</h2></div><span class="year-chip">2026⌄</span></div>
+      <div class="top-movie" *ngFor="let movie of movies | slice:0:4; let i=index">
+        <div class="rank">{{i+1}}</div><img [src]="movie.image" [alt]="movie.movieName">
+        <div><strong>{{movie.movieName}}</strong><small>★ {{movie.rating}} · {{movie.movieType}}</small></div>
+        <button (click)="onEdit(movie.id)">Edit</button>
+      </div>
+    </section>
+
+    <section class="panel seating-panel">
+      <div class="panel-title"><div><span>SEATING REPORT</span><h2>Studio 1</h2></div><span class="year-chip">Today⌄</span></div>
+      <div class="seating-body">
+        <div class="seat-map">
+          <div *ngFor="let s of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36]" class="seat" [class.sold]="s%4!==0" [class.reserved]="s%4===0"></div>
+        </div>
+        <div class="seat-legend"><span><i class="sold-dot"></i>Sold</span><span><i class="reserved-dot"></i>Reserved</span><span><i class="free-dot"></i>Available</span></div>
+      </div>
+    </section>
+
+    <section class="panel actions-panel">
+      <div class="panel-title"><div><span>QUICK ACTIONS</span><h2>Movie Management</h2></div></div>
+      <div class="action-list" *ngFor="let movie of movies | slice:0:5">
+        <img [src]="movie.image" [alt]="movie.movieName">
+        <div><strong>{{movie.movieName}}</strong><small>{{movie.releaseDate}}</small></div>
+        <button (click)="onEdit(movie.id)">Edit</button>
+        <button class="delete" (click)="onDelete(movie.id)">Delete</button>
+      </div>
+    </section>
+  </div>
+</section>

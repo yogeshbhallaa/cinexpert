@@ -1,0 +1,19 @@
+<article class="movie-card">
+  <a class="poster-link" [routerLink]="['/movie-detail',movie.id]">
+    <img class="movie-poster" [src]="getPoster()" alt="{{movie.movieName}}">
+    <span class="poster-overlay">View Details</span>
+  </a>
+
+  <div class="movie-card-body">
+    <div class="movie-title-row">
+      <h3>{{movie.movieName}}</h3>
+      <span class="rating-badge">★ {{movie.rating}}</span>
+    </div>
+    <div class="movie-meta">
+      <span>{{movie.movieType}}</span>
+      <span>•</span>
+      <span>{{movie.releaseDate}}</span>
+    </div>
+    <a class="details-link" [routerLink]="['/movie-detail',movie.id]">Book tickets <span>→</span></a>
+  </div>
+</article>

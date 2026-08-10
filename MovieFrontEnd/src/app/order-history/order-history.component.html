@@ -1,0 +1,13 @@
+<!--Order History-->
+<h1 class="center" style="margin-right: 100px;">My Booking</h1>
+<table  *ngFor="let book of booking" class="table table-striped  " style="margin-top: 0px ;padding-top: 0px;">
+    <tbody  *ngIf="username==book.userName">
+      <tr><td class="center">Booking Id </td><td class="center">{{book.id}}</td></tr>
+        <tr><td class="center">Movie Name </td><td class="center">{{book.movieName}}</td></tr>
+        <tr><td class="center">Seat Details </td><td class="center">{{book.numberOfSeats}}</td></tr>
+         <tr><td class="center"> Total Amount</td><td class="center">{{book.totalAmount}}</td></tr>
+        <div class="center"><button class="btn btn-primary  " style="background-color: blue;" routerLink="/user/review">Review</button>
+        </div>
+     </tbody>
+  </table>
+<span>{{this.date}}</span>

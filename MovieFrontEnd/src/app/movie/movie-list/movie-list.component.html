@@ -1,0 +1,47 @@
+<section class="movie-page">
+  <div class="movie-hero">
+    <div>
+      <span class="eyebrow">CINEBOOK</span>
+      <h1>Find your next movie night.</h1>
+      <p>Browse movies, compare dates and book your seats in a few clicks.</p>
+    </div>
+  </div>
+
+  <form class="movie-filters" (ngSubmit)="onSearch()">
+    <div class="search-wrap">
+      <label for="movieSearch">Search</label>
+      <input id="movieSearch" [(ngModel)]="text" name="text1"
+             placeholder="Search by movie name or genre">
+    </div>
+
+    <div class="date-wrap">
+      <div>
+        <label for="fromDate">From</label>
+        <input type="date" id="fromDate" [(ngModel)]="this.from" name="date1" required>
+      </div>
+      <div>
+        <label for="toDate">To</label>
+        <input type="date" id="toDate" [(ngModel)]="this.to" name="date2" required>
+      </div>
+    </div>
+
+    <div class="filter-actions">
+      <button type="submit" class="filter-primary">Search Movies</button>
+      <button type="button" (click)="onClear()" class="filter-secondary">Reset</button>
+    </div>
+  </form>
+
+  <div class="section-heading">
+    <div>
+      <span class="eyebrow">MOVIE COLLECTION</span>
+      <h2>Now Showing</h2>
+    </div>
+    <span class="movie-count" *ngIf="movies != null">{{filterMovie?.length || 0}} movies</span>
+  </div>
+
+  <div *ngIf="movies != null" class="movie-grid">
+    <div *ngFor="let movie of filterMovie" class="movie-grid-item">
+      <app-movie-card [movie]="movie"></app-movie-card>
+    </div>
+  </div>
+</section>

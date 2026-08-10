@@ -1,0 +1,121 @@
+@import 'assets/forms.css';
+@import 'assets/tabs.css';
+@import '../node_modules/alertifyjs/build/css/alertify.min.css';
+
+:root {
+  --cine-bg:#0b1020;
+  --cine-surface:#11182b;
+  --cine-surface-2:#151e35;
+  --cine-surface-3:#1b2742;
+  --cine-border:#273552;
+  --cine-text:#f4f7ff;
+  --cine-muted:#8995b0;
+  --cine-blue:#4f8cff;
+  --cine-blue-2:#2e6eea;
+  --cine-red:#ff6670;
+  --cine-green:#4bd39b;
+  --cine-shadow:0 18px 50px rgba(0,0,0,.28);
+}
+*{box-sizing:border-box}
+html,body{min-height:100%;background:var(--cine-bg)}
+body{
+ margin:0;color:var(--cine-text);
+ font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+ font-size:14px;
+}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 55% 0%,#182849 0,transparent 38%),#0b1020}
+button,input,select,textarea{font-family:inherit}
+a{text-decoration:none;color:inherit}
+.container{max-width:none;width:auto;margin:0;padding:0}
+app-root{display:block;min-height:100vh}
+.app-shell{min-height:100vh}
+.app-content{margin-left:228px;padding:32px 36px 56px;min-height:100vh}
+.card{background:var(--cine-surface)!important;color:var(--cine-text);border:1px solid var(--cine-border)!important;border-radius:16px!important;box-shadow:var(--cine-shadow)}
+.table{color:var(--cine-text)!important;border-color:var(--cine-border)!important}
+.form-control,.form-select,.form-control:focus,.form-select:focus,input,select,textarea{
+ background:#0d1528!important;color:var(--cine-text)!important;border:1px solid var(--cine-border)!important;
+}
+::placeholder{color:#65718b!important}
+.btn-primary{background:var(--cine-blue)!important;border-color:var(--cine-blue)!important}
+.btn-primary:hover{background:var(--cine-blue-2)!important}
+.btn-danger{background:#d84f5a!important;border-color:#d84f5a!important}
+.center{color:var(--cine-text)}
+@media(max-width:800px){.app-content{margin-left:0;padding:18px}.container{padding:0}}
+
+
+/* ===== Global layout safety / spacing pass ===== */
+html, body { width:100%; overflow-x:hidden; }
+app-root, app-nav-bar, router-outlet { min-width:0; }
+.app-shell { width:100%; min-width:0; }
+.app-content {
+  width:auto;
+  min-width:0;
+  max-width:100%;
+  overflow-x:clip;
+}
+.app-content > * { min-width:0; max-width:100%; }
+img, video, iframe, table { max-width:100%; }
+button, input, select, textarea { max-width:100%; }
+.row, [class*="col-"] { min-width:0; }
+
+@media (max-width: 1100px) {
+  .app-content { padding-left:28px; padding-right:28px; }
+}
+@media (max-width: 800px) {
+  .app-content { padding:20px 18px 40px; }
+}
+@media (max-width: 480px) {
+  .app-content { padding:16px 14px 32px; }
+}
+
+/* Admin dashboard: never allow a child panel to force the grid wider */
+.admin-dashboard {
+  width:100%;
+  max-width:1180px;
+  min-width:0;
+  margin-left:auto;
+  margin-right:auto;
+  overflow:visible;
+}
+.admin-head, .metric-grid, .dashboard-grid, .feature-content,
+.seating-body, .panel, .metric-card, .top-movie, .action-list {
+  min-width:0;
+}
+.metric-grid {
+  width:100%;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+}
+.dashboard-grid {
+  width:100%;
+  grid-template-columns:minmax(0, 1.62fr) minmax(280px, .9fr);
+}
+.dashboard-grid > * { min-width:0; }
+.panel { width:100%; max-width:100%; overflow:hidden; }
+.feature-content { width:100%; }
+.feature-copy { min-width:0; overflow-wrap:anywhere; }
+.feature-copy p { max-width:100%; }
+.seating-body { width:100%; }
+.seat-map { min-width:0; max-width:100%; }
+.action-list > * { min-width:0; }
+.top-movie > * { min-width:0; }
+
+@media (max-width: 1100px) {
+  .dashboard-grid { grid-template-columns:minmax(0,1fr); }
+}
+@media (max-width: 800px) {
+  .metric-grid { grid-template-columns:minmax(0,1fr); }
+  .feature-content { flex-direction:column; }
+  .feature-content img { width:100%; max-width:100%; height:240px; flex:0 0 auto; }
+  .seating-body { flex-direction:column; align-items:stretch; }
+  .seat-map { width:100%; overflow-x:auto; }
+  .seat-legend { flex-direction:row; flex-wrap:wrap; min-width:0; }
+}
+@media (max-width: 600px) {
+  .admin-head { flex-direction:column; align-items:flex-start; }
+  .admin-add { width:100%; }
+  .panel { padding:18px; }
+  .top-movie { grid-template-columns:20px 42px minmax(0,1fr); }
+  .top-movie button { grid-column:3; justify-self:start; }
+  .action-list { grid-template-columns:42px minmax(0,1fr); }
+  .action-list button { grid-column:2; justify-self:start; }
+}

@@ -1,0 +1,69 @@
+<!--User Reister-->
+<div class="row">
+    <div class="col-6 m-auto">
+        <div class="card m-auto">
+            <div class="card-header">
+                <h3>Register</h3>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="registerationForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group col-12">
+                        <label for="name" class="form-label">FirstName</label>
+                        <input class="form-control" type="text" formControlName="firstName">
+                        <span *ngIf="!userName.valid && (userName.touched || userSubmitted)" class="error-block">
+                            Provide Name</span>
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="name" class="form-label">Last Name</label>
+                        <input class="form-control" type="text" formControlName="lastName">
+                        <span *ngIf="!userName.valid && (userName.touched || userSubmitted)" class="error-block">
+                            Provide Name</span>
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="name" class="form-label">User Name</label>
+                        <input class="form-control" type="text" formControlName="userName">
+                        <span *ngIf="!userName.valid && (userName.touched || userSubmitted)" class="error-block">
+                            Provide Name</span>
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="email" class="form-label">Email</label>
+                        <input class="form-control" type="text" formControlName="email">
+                        <span *ngIf="!email.valid && (email.touched || userSubmitted)" class="error-block">
+                            <span *ngIf="email.hasError('required')">Provide Name</span>
+                            <span *ngIf="email.hasError('email')">Please Provide Vaild Email</span></span>
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="passwrod" class="form-label">Password</label>
+                        <input class="form-control" type="password" formControlName="password">
+                        <span *ngIf="!password.valid && (password.touched || userSubmitted)" class="error-block">
+                            Enter Password</span>
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="cpassword" class="form-label">Confirm Password</label>
+                        <input class="form-control" type="password" formControlName="confirmPassword">
+                        <span *ngIf="!confirmPassword.valid && (confirmPassword.touched || userSubmitted)"
+                            class="error-block">
+                            <span *ngIf="email.hasError('required')">Confirm
+                                Password</span></span>
+                        <span *ngIf="registerationForm.hasError('notmatched') && confirmPassword.valid"
+                            class="error-block">Password Not Matched</span>
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="mobile" class="form-label">Mobile</label>
+                        <input class="form-control" type="text" formControlName="mobile">
+                        <span *ngIf="!mobile.valid && (mobile.touched || userSubmitted)" class="error-block">
+                            <span *ngIf="mobile.hasError('required')">
+                                Provide Mobile Number</span>
+                            <span *ngIf="mobile.hasError('maxlength') " class="error-block">Invalid Number</span></span>
+                    </div>
+                    <div class="form-group col-12" style="margin-top: 10px;">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type="button" (click)="onReset()" class="btn btn-danger"
+                            style="margin-left: 8px;">Reset</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

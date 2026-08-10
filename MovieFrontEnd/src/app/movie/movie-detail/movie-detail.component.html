@@ -1,0 +1,38 @@
+<section class="detail-page" *ngIf="movie">
+  <div class="detail-hero">
+    <div class="detail-poster">
+      <img src="{{movie.image}}" alt="{{movie.movieName}}">
+    </div>
+
+    <div class="detail-content">
+      <span class="detail-label">MOVIE DETAILS</span>
+      <h1>{{movie.movieName}}</h1>
+
+      <div class="detail-rating">
+        <span class="stars">★</span>
+        <strong>{{movie.rating}}</strong>
+        <span>•</span>
+        <span>{{movie.length}}</span>
+        <span>•</span>
+        <span>{{movie.language}}</span>
+      </div>
+
+      <div class="detail-tags">
+        <span>{{movie.category}}</span>
+        <span>{{movie.movieType}}</span>
+        <span>{{movie.releaseDate}}</span>
+      </div>
+
+      <div class="detail-info-grid">
+        <div><small>Directed By</small><strong>{{movie.directedBY}}</strong></div>
+        <div><small>Release Date</small><strong>{{movie.releaseDate}}</strong></div>
+        <div><small>Language</small><strong>{{movie.language}}</strong></div>
+        <div><small>Runtime</small><strong>{{movie.length}}</strong></div>
+      </div>
+
+      <button type="button" (click)="confirm()" class="book-button">
+        Book Tickets <span>→</span>
+      </button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,53 @@
+<!--User Review-->
+<div class="row">
+  <div class="col-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-9">
+          <h4 class="center"><b>Review for Movie </b><br></h4>
+          <form class="form-row">
+            <label for="negotiate-name">Movie Name</label>
+            <form [formGroup]="select1">
+              <select formControlName="time" (change)="review1()" name="" id="">
+                <option *ngFor="let show of showtimes" value="{{show.movieName}}"> {{show.movieName}}</option>
+              </select>
+            </form>
+            <br>
+            <div class="form-group input-group-sm col-12">
+              <label for="negotiate-comments">Comments :</label>
+              <textarea class="form-control" rows="2" id="negotiate-comments" name="desc"
+                [(ngModel)]="review.comments"></textarea>
+            </div>
+            <div class="form-group">
+            </div>
+            <div class="form-group col-auto ml-auto ">
+            </div><br>
+            <button type="submit" class="btn btn-success mt-2" (click)="onSubmit()">Add Review</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-7">
+    <div class="container">
+      <h2>All Reviews About the Movies</h2>
+      <p></p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>User Name</th>
+            <th>Movie Name</th>
+            <th>Comments</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rev of arr">
+            <td>{{rev.userName}}</td>
+            <td>{{rev.movieName}}</td>
+            <td>{{rev.comments}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

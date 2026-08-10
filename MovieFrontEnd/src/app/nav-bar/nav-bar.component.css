@@ -1,0 +1,21 @@
+.cine-sidebar{
+ position:fixed;left:0;top:0;bottom:0;width:228px;z-index:1000;
+ padding:28px 16px 20px;background:#0e1528;border-right:1px solid #202c47;
+ display:flex;flex-direction:column;color:#aab5cc;
+}
+.cine-brand{display:flex;align-items:center;gap:10px;padding:0 6px 28px;color:#fff!important}
+.brand-mark{width:34px;height:34px;display:grid;place-items:center;border-radius:11px;background:linear-gradient(145deg,#5d9bff,#3473ea);font-weight:900}
+.cine-brand strong{display:block;font-size:15px}.cine-brand small{display:block;color:#66748f;font-size:9px;margin-top:2px;text-transform:uppercase;letter-spacing:1px}
+.side-search{height:35px;border:1px solid #202c47;background:#111a30;border-radius:9px;display:flex;align-items:center;padding:0 10px;gap:7px;margin:0 2px 26px}
+.side-search span{font-size:18px;color:#75819a}.side-search input{border:0!important;background:transparent!important;padding:0!important;min-width:0;font-size:11px;color:#dfe7f7!important;outline:none}
+.side-nav{display:flex;flex-direction:column;gap:8px}.side-label{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#596681;padding:0 10px 10px}
+.side-nav a{display:flex;align-items:center;gap:11px;padding:11px 10px;border-radius:9px;color:#9ca9c1!important;font-size:11px;font-weight:600}
+.side-nav a:first-of-type{color:#fff!important}
+.side-nav a:hover,.side-nav a.active{background:#172643;color:#63a0ff!important}.side-nav a.active{box-shadow:inset 2px 0 #4f8cff}
+.side-messages{margin-top:32px}.side-messages .side-label{display:flex;justify-content:space-between}.side-messages .side-label span{background:#3b233c;color:#ff6b7b;border-radius:10px;padding:1px 5px}
+.message-row{display:flex;align-items:center;gap:8px;padding:6px 10px;font-size:10px}.message-row i{width:23px;height:23px;border-radius:50%;display:grid;place-items:center;background:#263653;color:#dbe7ff;font-size:8px;font-style:normal}
+.side-profile{margin-top:auto;padding:12px;border:1px solid #253250;border-radius:13px;background:#121c31;display:grid;grid-template-columns:30px 1fr;gap:8px;align-items:center}
+.avatar{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#c8e2ff;color:#1b3761;font-size:10px;font-weight:800}
+.profile-copy strong,.profile-copy small{display:block}.profile-copy strong{font-size:10px;color:#f2f6ff}.profile-copy small{font-size:8px;color:#6e7d99;margin-top:2px}
+.side-logout{grid-column:1/-1;width:100%;height:29px;border:1px solid #38547e;background:#14233d;color:#75a8ff;border-radius:8px;font-size:10px}
+@media(max-width:800px){.cine-sidebar{position:relative;width:100%;height:auto;bottom:auto;padding:14px 16px}.side-nav,.side-messages{display:none}.side-search{display:none}.side-profile{display:flex;margin-top:0;margin-left:auto;position:absolute;right:15px;top:14px}.profile-copy{display:none}.side-logout{width:auto;padding:0 10px}.cine-brand{padding-bottom:0}.app-content{margin-left:0}}
